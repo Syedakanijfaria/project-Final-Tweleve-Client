@@ -29,6 +29,9 @@ import ManageAllOrder from '../ManageAllOrder/ManageAllOrder.js';
 import MakeAdmin from '../MakeAdmin/MakeAdmin.js';
 import MyOrder from '../MyOrder/MyOrder.js';
 import AddNewProduct from '../AddNewProduct/AddNewProduct.js';
+import Pay from '../Pay/Pay.js';
+import Review from '../Review/Review.js';
+import ManageProducts from '../ManageProducts/ManageProducts.js';
 
 const drawerWidth = 200;
 
@@ -47,10 +50,17 @@ function Dashboard(props) {
             <Divider />
             <Link to="/shop"><Button variant="contained" color="inherit">SHOP</Button></Link>
             <Link to={`${url}`}><Button color="inherit">Dashboard</Button></Link>
-            <Link to={`${url}/manageallorder`}><Button color="inherit">ManageAllOrder</Button></Link>
+
+            <Link to={`${url}/review`}><Button color="inherit">Review</Button></Link>
             <Link to={`${url}/myorder`}><Button color="inherit">MyOrder</Button></Link>
+            <Link to={`${url}/pay`}><Button color="inherit">Pay</Button></Link>
+
+            <Link to={`${url}/manageallorder`}><Button color="inherit">ManageAllOrder</Button></Link>
+            <Link to={`${url}/manageproducts`}><Button color="inherit">Manage Products</Button></Link>
             <Link to={`${url}/addnewproduct`}><Button color="inherit">Add new product</Button></Link>
             <Link to={`${url}/makeadmin`}><Button color="inherit">Make Admin</Button></Link>
+
+
 
             <List>
                 {['REVIEW', 'MY ORDERS', 'PAY', 'MANAGE ALL ORDERS', 'ADD A PRODUCTS', 'MANAGE PRODUCTS', 'MAKE ADMIN'].map((text, index) => (
@@ -140,6 +150,15 @@ function Dashboard(props) {
                     </Route>
                     <Route path={`${path}/makeadmin`}>
                         <MakeAdmin></MakeAdmin>
+                    </Route>
+                    <Route path={`${path}/pay`}>
+                        <Pay></Pay>
+                    </Route>
+                    <Route path={`${path}/review`}>
+                        <Review></Review>
+                    </Route>
+                    <Route path={`${path}/manageproducts`}>
+                        <ManageProducts></ManageProducts>
                     </Route>
                 </Switch>
             </Box>
