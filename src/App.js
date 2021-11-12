@@ -11,6 +11,7 @@ import Login from './Pages/Login/Login/Login';
 import Register from './Pages/Login/Register/Register';
 import AuthProvider from './Contexts/AuthProvider/AuthProvider.js';
 import PrivateRoute from './Pages/Login/PrivateRoute/PrivateRoute';
+import PlaceOrder from './Pages/Shared/PlaceOrder/PlaceOrder.js';
 
 function App() {
   return (
@@ -18,12 +19,15 @@ function App() {
       <AuthProvider>
         <Router>
           <Switch>
-            <PrivateRoute path="/shop">
-              <Shop></Shop>
-            </PrivateRoute>
             <Route path="/home">
               <Home />
             </Route>
+            <PrivateRoute path="/shop">
+              <Shop></Shop>
+            </PrivateRoute>
+            <PrivateRoute exact path="/placeOrder/:id">
+              <PlaceOrder></PlaceOrder>
+            </PrivateRoute>
             <Route path="/login">
               <Login />
             </Route>

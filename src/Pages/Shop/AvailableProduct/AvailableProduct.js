@@ -13,8 +13,6 @@ const AvailableProduct = (props) => {
     //const [openBooking, setBookingOpen] = React.useState(false);
     //const handleBookingOpen = () => setBookingOpen(true);
     //const handleBookingClose = () => setBookingOpen(false);
-
-
     const history = useHistory();
 
     const handleDetails = (_id) => {
