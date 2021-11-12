@@ -23,7 +23,7 @@ const PlaceOrder = () => {
         data.status = "Pending";
         console.log("status", data);
 
-        axios.post('http://localhost:5000/users', data)
+        axios.post('http://localhost:5000/userOrder', data)
             .then(res => {
                 if (res.data.insertedId) {
                     reset();
