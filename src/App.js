@@ -1,18 +1,16 @@
-import React from "react";
+import './App.css';
 import {
   BrowserRouter as Router,
   Switch,
   Route,
   Link
 } from "react-router-dom";
-import './App.css';
-import AuthProvider from "./Context/AuthProvider/AuthProvider.js";
-import Appointment from "./Pages/Appointment/Appointment/Appointment.js";
-import Home from "./Pages/Home/Home/Home.js";
-import Login from "./Pages/Login/Login/Login.js";
-import PrivateRoute from "./Pages/Login/PrivateRoute/PrivateRoute.js";
-import Register from "./Pages/Login/Register/Register.js";
-import Dashboard from './Pages/Dashboard/Dashboard/Dashboard.js';
+import Home from './Pages/Home/Home/Home';
+import Shop from './Pages/Shop/Shop/shop.js'
+import Login from './Pages/Login/Login/Login';
+import Register from './Pages/Login/Register/Register';
+import AuthProvider from './Contexts/AuthProvider/AuthProvider.js';
+import PrivateRoute from './Pages/Login/PrivateRoute/PrivateRoute';
 
 function App() {
   return (
@@ -20,22 +18,19 @@ function App() {
       <AuthProvider>
         <Router>
           <Switch>
+            <PrivateRoute path="/shop">
+              <Shop></Shop>
+            </PrivateRoute>
             <Route path="/home">
-              <Home></Home>
+              <Home />
             </Route>
             <Route path="/login">
-              <Login></Login>
+              <Login />
             </Route>
             <Route path="/register">
-              <Register></Register>
+              <Register />
             </Route>
-            <PrivateRoute path="/dashboard">
-              <Dashboard></Dashboard>
-            </PrivateRoute>
-            <PrivateRoute path="/appointment">
-              <Appointment></Appointment>
-            </PrivateRoute>
-            <Route path="/">
+            <Route exact path="/">
               <Home />
             </Route>
           </Switch>
