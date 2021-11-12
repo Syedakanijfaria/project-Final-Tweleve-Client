@@ -27,8 +27,8 @@ const Navigation = () => {
                     <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
                         MILD<br />Baby Care
                     </Typography>
-                    <Link to="/home"><Button color="inherit">HOME</Button></Link>
-                    <Link to="/shop"><Button color="inherit">SHOP</Button></Link>
+                    <Link to="/home"><Button style={{ textDecoration: 'none', color: 'white' }} color="inherit">HOME</Button></Link>
+                    <Link to="/shop"><Button style={{ textDecoration: 'none', color: 'white' }} color="inherit">SHOP</Button></Link>
                     {
                         user?.email ?
                             <Box>
