@@ -41,7 +41,7 @@ const AvailableProduct = (props) => {
                     <Typography variant="caption" display="block" gutterBottom>
                         {price}
                     </Typography>
-                    <Button onClick={() => handleDetails(_id)} variant="contained">BUY NOW</Button>
+                    <Button onClick={() => handleDetails(_id)} variant="contained" color="inherit">BUY NOW</Button>
                 </CardContent>
             </Card>
         </Grid>
