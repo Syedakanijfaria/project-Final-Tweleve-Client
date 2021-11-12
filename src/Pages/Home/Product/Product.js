@@ -5,10 +5,18 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { Button } from "@mui/material";
+import { useHistory } from 'react-router';
 
 
 const Product = (props) => {
     const { _id, pdname, price, des, img, type } = props.product || {};
+
+    const history = useHistory();
+
+    const handleDetails = (_id) => {
+        const uri = `/placeOrder/${_id}`;
+        history.push(uri);
+    }
     return (
         <Grid item xs={4} sm={4} md={4}>
             <Card sx={{ minWidth: 275, border: 0, boxShadow: 0 }}>
@@ -29,7 +37,7 @@ const Product = (props) => {
                         {des}
                     </Typography>
                     <Typography variant="body2" color="text.secondary">
-                        <Button variant="contained" style={{ backgroundColor: '#5CE7ED' }}>BUY NOW</Button>
+                        <Button onClick={() => handleDetails(_id)} variant="contained" style={{ backgroundColor: '#5CE7ED' }}>BUY NOW</Button>
                     </Typography>
                 </CardContent>
             </Card>

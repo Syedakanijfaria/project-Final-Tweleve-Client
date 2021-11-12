@@ -19,9 +19,7 @@ const AvailableProduct = (props) => {
         const uri = `/placeOrder/${_id}`;
         history.push(uri);
     }
-
     return (
-
         <Grid item xs={12} sm={6} md={4}>
             <Card sx={{ minWidth: 275, border: 0, boxShadow: 0 }}>
                 <CardMedia
