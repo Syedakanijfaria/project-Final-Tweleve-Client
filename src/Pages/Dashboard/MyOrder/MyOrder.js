@@ -1,25 +1,56 @@
 import React, { useEffect, useState } from 'react';
 import useAuth from '../../../Hooks/useAuth.js';
-import MyOrderContent from './MyOrderContent/MyOrderContent.js';
+
 
 const MyOrder = () => {
     const { user } = useAuth();
-    const [users, setUsers] = useState([]);
+    const [myOrder, setMyOrder] = useState([]);
+    const [isDelete, setIsDelete] = useState(false);
+    //console.log("myOrder", myOrder);
     useEffect(() =>
         fetch(`http://localhost:5000/userOrder/${user.email}`)
             .then(res => res.json())
-            .then(data => setUsers(data))
-        , [])
+            .then(data => setMyOrder(data))
+        , [isDelete])
+
+    const handleDelete = id => {
+        //const proceed = window.confirm('Are you sure, you want to delete it?');
+        alert('Are you sure, you want to delete it?');
+        const url = `http://localhost:5000/userOrder/${id}`;
+        fetch(url, {
+            method: 'DELETE'
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                if (data.deletedCount) {
+                    alert('deleted successfully')
+                    //window.location.reload();
+                    const remaining = myOrder.filter(order => order._id !== id);
+                    setMyOrder(remaining);
+                    setIsDelete(true);
+                } else { setIsDelete(false); }
+            })
+    }
     return (
         <div className="container">
             <h1>this is single user order review</h1>
             <div>
                 {
-                    users.map((user => <MyOrderContent
-                        key={user._id}
-                        user={user}
-                    >
-                    </MyOrderContent>))
+                    myOrder.map(user =>
+                        <div className="col-md-3">
+                            <div className="card" style={{ "width": "18rem" }}>
+                                <div className="card-body">
+                                    <h5 className="card-title">Title: {user?.pdname}</h5>
+                                    <p className="card-text">User Name: {user?.name}</p>
+                                    <p className="card-text">Price: {user.price}</p>
+                                    <p className="card-text">Email: {user.email}</p>
+                                    <p className="card-text">Mobile Number: {user.number}</p>
+                                    <p className="card-text">Address: {user.address}</p>
+                                    <button onClick={() => handleDelete(user._id)} >Delete</button>
+                                </div>
+                            </div>
+                        </div>)
                 }
             </div>
         </div>
