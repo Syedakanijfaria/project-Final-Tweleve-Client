@@ -32,6 +32,7 @@ import AddNewProduct from '../AddNewProduct/AddNewProduct.js';
 import Pay from '../Pay/Pay.js';
 import Review from '../Review/Review.js';
 import ManageProducts from '../ManageProducts/ManageProducts.js';
+import useAuth from '../../../Hooks/useAuth.js';
 
 const drawerWidth = 200;
 
@@ -39,7 +40,7 @@ function Dashboard(props) {
     const { window } = props;
     const [mobileOpen, setMobileOpen] = React.useState(false);
     let { path, url } = useRouteMatch();
-
+    const { admin } = useAuth();
     const handleDrawerToggle = () => {
         setMobileOpen(!mobileOpen);
     };
@@ -54,12 +55,12 @@ function Dashboard(props) {
             <Link to={`${url}/review`}><Button color="inherit">Review</Button></Link>
             <Link to={`${url}/myorder`}><Button color="inherit">MyOrder</Button></Link>
             <Link to={`${url}/pay`}><Button color="inherit">Pay</Button></Link>
-
-            <Link to={`${url}/manageallorder`}><Button color="inherit">ManageAllOrder</Button></Link>
-            <Link to={`${url}/manageproducts`}><Button color="inherit">Manage Products</Button></Link>
-            <Link to={`${url}/addnewproduct`}><Button color="inherit">Add new product</Button></Link>
-            <Link to={`${url}/makeadmin`}><Button color="inherit">Make Admin</Button></Link>
-
+            {admin && <Box>
+                <Link to={`${url}/manageallorder`}><Button color="inherit">ManageAllOrder</Button></Link>
+                <Link to={`${url}/manageproducts`}><Button color="inherit">Manage Products</Button></Link>
+                <Link to={`${url}/addnewproduct`}><Button color="inherit">Add new product</Button></Link>
+                <Link to={`${url}/makeadmin`}><Button color="inherit">Make Admin</Button></Link>
+            </Box>}
 
 
             <List>
