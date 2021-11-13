@@ -15,7 +15,11 @@ const MyOrder = () => {
             <h1>this is single user order review</h1>
             <div>
                 {
-                    users.map((user => <MyOrderContent user={user}></MyOrderContent>))
+                    users.map((user => <MyOrderContent
+                        key={user._id}
+                        user={user}
+                    >
+                    </MyOrderContent>))
                 }
             </div>
         </div>

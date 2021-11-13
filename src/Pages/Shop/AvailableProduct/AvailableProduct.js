@@ -10,9 +10,6 @@ import { useHistory } from 'react-router';
 
 const AvailableProduct = (props) => {
     const { _id, pdname, price, des, img, type } = props.product || {};
-    //const [openBooking, setBookingOpen] = React.useState(false);
-    //const handleBookingOpen = () => setBookingOpen(true);
-    //const handleBookingClose = () => setBookingOpen(false);
     const history = useHistory();
 
     const handleDetails = (_id) => {
@@ -45,7 +42,6 @@ const AvailableProduct = (props) => {
                 </CardContent>
             </Card>
         </Grid>
-
     );
 };
 export default AvailableProduct;

@@ -16,7 +16,7 @@ const AvailableProducts = () => {
             <Grid container spacing={2}>
                 {
                     products.map(product => <AvailableProduct
-                        key={product.id}
+                        key={product._id}
                         product={product}
                     >
                     </AvailableProduct>)

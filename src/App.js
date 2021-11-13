@@ -3,7 +3,6 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link
 } from "react-router-dom";
 import Home from './Pages/Home/Home/Home';
 import Shop from './Pages/Shop/Shop/shop.js'
@@ -13,7 +12,7 @@ import AuthProvider from './Contexts/AuthProvider/AuthProvider.js';
 import PrivateRoute from './Pages/Login/PrivateRoute/PrivateRoute';
 import PlaceOrder from './Pages/Shared/PlaceOrder/PlaceOrder.js';
 import Dashboard from './Pages/Dashboard/Dashboard/Dashboard.js';
-import ManageAllOrder from './Pages/Dashboard/ManageAllOrder/ManageAllOrder.js';
+
 
 function App() {
   return (
@@ -24,12 +23,9 @@ function App() {
             <Route path="/home">
               <Home />
             </Route>
-            <PrivateRoute path="/shop">
+            <Route path="/shop">
               <Shop></Shop>
-            </PrivateRoute>
-            <PrivateRoute exact path="/manageallorder">
-              <ManageAllOrder></ManageAllOrder>
-            </PrivateRoute>
+            </Route>
             <PrivateRoute path="/dashboard">
               <Dashboard />
             </PrivateRoute>

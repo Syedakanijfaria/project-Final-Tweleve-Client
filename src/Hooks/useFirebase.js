@@ -9,8 +9,8 @@ const useFirebase = () => {
     const [user, setUser] = useState({});
     const [isLoading, setIsLoading] = useState(true);
     const [authError, setAuthError] = useState('');
-    const [token, setToken] = useState('');
     const [admin, setAdmin] = useState(false);
+    const [token, setToken] = useState('');
     const auth = getAuth();
 
     const registerUser = (email, password, name, history) => {
@@ -79,6 +79,7 @@ const useFirebase = () => {
         })
             .then()
     }
+
     const logout = () => {
         setIsLoading(true);
         signOut(auth).then(() => {
@@ -94,6 +95,7 @@ const useFirebase = () => {
             .then(res => res.json())
             .then(data => setAdmin(data.admin))
     }, [user.email])
+
     return {
         user,
         admin,

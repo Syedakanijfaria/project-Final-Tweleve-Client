@@ -9,7 +9,7 @@ import { useHistory } from 'react-router';
 
 
 const Product = (props) => {
-    const { _id, pdname, price, des, img, type } = props.product || {};
+    const { _id, pdname, des, img, type } = props.product || {};
 
     const history = useHistory();
 

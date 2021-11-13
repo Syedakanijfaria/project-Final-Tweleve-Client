@@ -15,8 +15,6 @@ import MailIcon from '@mui/icons-material/Mail';
 import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
-import Grid from '@mui/material/Grid';
-import login from '../../../images/login.png'
 import { Button } from '@mui/material';
 import { Link } from 'react-router-dom';
 import {
@@ -33,6 +31,7 @@ import Pay from '../Pay/Pay.js';
 import Review from '../Review/Review.js';
 import ManageProducts from '../ManageProducts/ManageProducts.js';
 import useAuth from '../../../Hooks/useAuth.js';
+import AdminRoute from '../../Login/AdminRoute/AdminRoute.js';
 
 const drawerWidth = 200;
 
@@ -61,7 +60,6 @@ function Dashboard(props) {
                 <Link to={`${url}/addnewproduct`}><Button color="inherit">Add new product</Button></Link>
                 <Link to={`${url}/makeadmin`}><Button color="inherit">Make Admin</Button></Link>
             </Box>}
-
 
             <List>
                 {['REVIEW', 'MY ORDERS', 'PAY', 'MANAGE ALL ORDERS', 'ADD A PRODUCTS', 'MANAGE PRODUCTS', 'MAKE ADMIN'].map((text, index) => (
@@ -141,25 +139,27 @@ function Dashboard(props) {
                 <Toolbar />
 
                 <Switch>
-                    <Route exact path={`${path}/manageallorder`}>
+                    <AdminRoute exact path={`${path}/manageallorder`}>
                         <ManageAllOrder></ManageAllOrder>
-                    </Route>
-                    <Route exact path={`${path}/myorder`}>
-                        <MyOrder></MyOrder>
-                    </Route><Route exact path={`${path}/addnewproduct`}>
+                    </AdminRoute>
+                    <AdminRoute exact path={`${path}/addnewproduct`}>
                         <AddNewProduct></AddNewProduct>
-                    </Route>
-                    <Route path={`${path}/makeadmin`}>
+                    </AdminRoute>
+                    <AdminRoute path={`${path}/makeadmin`}>
                         <MakeAdmin></MakeAdmin>
-                    </Route>
+                    </AdminRoute>
+                    <AdminRoute path={`${path}/manageproducts`}>
+                        <ManageProducts></ManageProducts>
+                    </AdminRoute>
+
                     <Route path={`${path}/pay`}>
                         <Pay></Pay>
                     </Route>
                     <Route path={`${path}/review`}>
                         <Review></Review>
                     </Route>
-                    <Route path={`${path}/manageproducts`}>
-                        <ManageProducts></ManageProducts>
+                    <Route exact path={`${path}/myorder`}>
+                        <MyOrder></MyOrder>
                     </Route>
                 </Switch>
             </Box>

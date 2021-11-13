@@ -14,7 +14,11 @@ const ManageAllOrder = () => {
             <h1>this is all user order review</h1>
             <div>
                 {
-                    users.map((user => <ManageContent user={user}></ManageContent>))
+                    users.map((user => <ManageContent
+                        key={user._id}
+                        user={user}
+                    >
+                    </ManageContent>))
                 }
             </div>
         </div>
