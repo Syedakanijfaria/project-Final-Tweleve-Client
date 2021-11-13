@@ -8,7 +8,7 @@ const MyOrder = () => {
     const [isDelete, setIsDelete] = useState(false);
     //console.log("myOrder", myOrder);
     useEffect(() =>
-        fetch(`http://localhost:5000/userOrder/${user.email}`)
+        fetch(`https://lit-lowlands-03671.herokuapp.com/userOrder/${user.email}`)
             .then(res => res.json())
             .then(data => setMyOrder(data))
         , [isDelete])
@@ -16,7 +16,7 @@ const MyOrder = () => {
     const handleDelete = id => {
         //const proceed = window.confirm('Are you sure, you want to delete it?');
         alert('Are you sure, you want to delete it?');
-        const url = `http://localhost:5000/userOrder/${id}`;
+        const url = `https://lit-lowlands-03671.herokuapp.com/userOrder/${id}`;
         fetch(url, {
             method: 'DELETE'
         })

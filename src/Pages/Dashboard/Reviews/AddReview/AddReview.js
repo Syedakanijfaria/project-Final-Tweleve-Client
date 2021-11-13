@@ -14,7 +14,7 @@ const AddReview = () => {
 
     const onSubmit = data => {
 
-        axios.post('http://localhost:5000/review', data)
+        axios.post('https://lit-lowlands-03671.herokuapp.com/review', data)
             .then(res => {
                 if (res.data.insertedId) {
                     reset();

@@ -4,7 +4,7 @@ import ManageContent from './ManageContent/ManageContent.js';
 const ManageAllOrder = () => {
     const [users, setUsers] = useState([])
     useEffect(() => {
-        fetch(`http://localhost:5000/userOrder`)
+        fetch(`https://lit-lowlands-03671.herokuapp.com/userOrder`)
             .then(res => res.json())
             .then(data => setUsers(data))
     }, [])

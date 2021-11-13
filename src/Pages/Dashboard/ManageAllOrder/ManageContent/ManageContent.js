@@ -8,7 +8,7 @@ const ManageContent = (props) => {
     const handlePending = id => {
         const aproved = window.confirm('Your order has been aproved!');
         if (aproved) {
-            const url = `http://localhost:5000/userOrder${id}`;
+            const url = `https://lit-lowlands-03671.herokuapp.com/userOrder${id}`;
             fetch(url, {
                 method: 'PUT'
             })
@@ -26,7 +26,7 @@ const ManageContent = (props) => {
     const handleDelete = id => {
         const proceed = window.confirm('Are you sure, you want to delete it?');
         if (proceed) {
-            const url = `http://localhost:5000/userOrder/${id}`;
+            const url = `https://lit-lowlands-03671.herokuapp.com/userOrder/${id}`;
             fetch(url, {
                 method: 'DELETE'
             })

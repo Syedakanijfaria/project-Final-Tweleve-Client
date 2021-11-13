@@ -10,7 +10,7 @@ const PlaceOrder = () => {
     const [details, setDetails] = useState([])
 
     useEffect(() =>
-        fetch(`http://localhost:5000/products/${id}`)
+        fetch(`https://lit-lowlands-03671.herokuapp.com/products/${id}`)
             .then(res => res.json())
             .then(data => setDetails(data))
         , [id])
@@ -23,7 +23,7 @@ const PlaceOrder = () => {
         data.status = "Pending";
         console.log("status", data);
 
-        axios.post('http://localhost:5000/userOrder', data)
+        axios.post('https://lit-lowlands-03671.herokuapp.com/userOrder', data)
             .then(res => {
                 if (res.data.insertedId) {
                     reset();
