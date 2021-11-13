@@ -1,3 +1,5 @@
+import { Card, Grid, Typography } from '@mui/material';
+import Button from '@mui/material/Button';
 import React, { useState } from 'react';
 
 const ManageContent = (props) => {
@@ -8,7 +10,7 @@ const ManageContent = (props) => {
     const handlePending = id => {
         const aproved = window.confirm('Your order has been aproved!');
         if (aproved) {
-            const url = `https://lit-lowlands-03671.herokuapp.com/userOrder${id}`;
+            const url = `http://localhost:5000/userOrder${id}`;
             fetch(url, {
                 method: 'PUT'
             })
@@ -26,7 +28,7 @@ const ManageContent = (props) => {
     const handleDelete = id => {
         const proceed = window.confirm('Are you sure, you want to delete it?');
         if (proceed) {
-            const url = `https://lit-lowlands-03671.herokuapp.com/userOrder/${id}`;
+            const url = `http://localhost:5000/userOrder/${id}`;
             fetch(url, {
                 method: 'DELETE'
             })
@@ -43,21 +45,18 @@ const ManageContent = (props) => {
     }
 
     return (
-        <div className="col-md-3">
-            <div className="card" style={{ "width": "18rem" }}>
-                <div className="card-body">
-                    <h5 className="card-title">Title: {pdname}</h5>
-                    <p className="card-text">User Name: {name}</p>
-                    <p className="card-text">Price: {price}</p>
-                    <p className="card-text">Email: {email}</p>
-                    <p className="card-text">Mobile Number: {number}</p>
-                    <p className="card-text">Departure Date:{Date}</p>
-                    <p className="card-text">Address: {address}</p>
-                    <button className="btn btn-warning" onClick={() => handlePending(_id)} >Pending</button>
-                    <button className="btn btn-warning" onClick={() => handleDelete(_id)} >Delete</button>
-                </div>
-            </div>
-        </div >
+
+        <Card>
+            <Typography className="card-title">Title: {pdname}</Typography >
+            <Typography className="card-text">User Name: {name}</Typography >
+            <Typography >Price: {price}</Typography >
+            <Typography >Email: {email}</Typography >
+            <Typography >Mobile Number: {number}</Typography >
+            <Typography >Address: {address}</Typography >
+            <Button variant="contained" onClick={() => handlePending(_id)} >Pending</Button>
+            <Button variant="contained" onClick={() => handleDelete(_id)} >Delete</Button>
+        </Card>
+
     );
 };
 export default ManageContent;

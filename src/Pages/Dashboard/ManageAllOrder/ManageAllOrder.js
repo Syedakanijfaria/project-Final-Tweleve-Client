@@ -1,3 +1,4 @@
+import { Card, Container, Grid } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 import ManageContent from './ManageContent/ManageContent.js';
 
@@ -10,18 +11,20 @@ const ManageAllOrder = () => {
     }, [])
 
     return (
-        <div className="container">
+        <Container>
             <h1>this is all user order review</h1>
-            <div>
-                {
-                    users.map((user => <ManageContent
-                        key={user._id}
-                        user={user}
-                    >
-                    </ManageContent>))
-                }
-            </div>
-        </div>
+            <Grid>
+                <Card>
+                    {
+                        users.map((user => <ManageContent
+                            key={user._id}
+                            user={user}
+                        >
+                        </ManageContent>))
+                    }
+                </Card>
+            </Grid>
+        </Container>
     );
 };
 export default ManageAllOrder;

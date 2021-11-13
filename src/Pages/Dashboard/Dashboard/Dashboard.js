@@ -31,11 +31,11 @@ import ManageProducts from '../ManageProducts/ManageProducts.js';
 import useAuth from '../../../Hooks/useAuth.js';
 import AdminRoute from '../../Login/AdminRoute/AdminRoute.js';
 import AddReview from '../Reviews/AddReview/AddReview.js';
-//import Navigation from '../../Shared/Navigation/Navigation.js';
 
 const drawerWidth = 200;
 
 function Dashboard(props) {
+    const { user, logout } = useAuth();
     const { window } = props;
     const [mobileOpen, setMobileOpen] = React.useState(false);
     let { path, url } = useRouteMatch();
@@ -48,29 +48,18 @@ function Dashboard(props) {
         <div>
             <Toolbar />
             <Divider />
-            <Link to="/shop"><Button variant="contained" color="inherit">SHOP</Button></Link>
-            <Link to={`${url}`}><Button color="inherit">Dashboard</Button></Link>
-
-            <Link to={`${url}/addreview`}><Button color="inherit">Review</Button></Link>
-            <Link to={`${url}/myorder`}><Button color="inherit">MyOrder</Button></Link>
-            <Link to={`${url}/pay`}><Button color="inherit">Pay</Button></Link>
+            <Link to="/home"><Button sx={{ m: 1 }} variant="contained" >Home</Button></Link><br />
+            <Link to="/shop"><Button sx={{ m: 1 }} variant="contained" >SHOP</Button></Link><br />
+            <Link to={`${url}/addreview`}><Button sx={{ m: 1 }} variant="contained">Review</Button></Link><br />
+            <Link to={`${url}/myorder`}><Button sx={{ m: 1 }} variant="contained">MyOrder</Button></Link><br />
+            <Link to={`${url}/pay`}><Button sx={{ m: 1 }} variant="contained">Pay</Button></Link><br />
             {admin && <Box>
-                <Link to={`${url}/manageallorder`}><Button color="inherit">Manage All Order</Button></Link>
-                <Link to={`${url}/manageproducts`}><Button color="inherit">Manage Products</Button></Link>
-                <Link to={`${url}/addnewproduct`}><Button color="inherit">Add new product</Button></Link>
-                <Link to={`${url}/makeadmin`}><Button color="inherit">Make Admin</Button></Link>
+                <Link to={`${url}/manageallorder`}><Button sx={{ m: 1 }} variant="contained">Manage All Order</Button></Link><br />
+                <Link to={`${url}/manageproducts`}><Button sx={{ m: 1 }} variant="contained">Manage Products</Button></Link><br />
+                <Link to={`${url}/addnewproduct`}><Button sx={{ m: 1 }} variant="contained">Add new product</Button></Link><br />
+                <Link to={`${url}/makeadmin`}><Button sx={{ m: 1 }} variant="contained">Make Admin</Button></Link>
             </Box>}
-
-            <List>
-                {['REVIEW', 'MY ORDERS', 'PAY', 'MANAGE ALL ORDERS', 'ADD A PRODUCTS', 'MANAGE PRODUCTS', 'MAKE ADMIN'].map((text, index) => (
-                    <ListItem button key={text}>
-                        <ListItemIcon>
-                            {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                        </ListItemIcon>
-                        <ListItemText primary={text} />
-                    </ListItem>
-                ))}
-            </List>
+            <Button onClick={logout} sx={{ m: 1 }} variant="contained">Logout</Button>
         </div>
     );
 
@@ -161,6 +150,7 @@ function Dashboard(props) {
                     <Route exact path={`${path}/myorder`}>
                         <MyOrder></MyOrder>
                     </Route>
+
                 </Switch>
             </Box>
         </Box>

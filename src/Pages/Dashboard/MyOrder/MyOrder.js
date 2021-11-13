@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import useAuth from '../../../Hooks/useAuth.js';
 
-
 const MyOrder = () => {
     const { user } = useAuth();
     const [myOrder, setMyOrder] = useState([]);
@@ -15,22 +14,24 @@ const MyOrder = () => {
 
     const handleDelete = id => {
         //const proceed = window.confirm('Are you sure, you want to delete it?');
-        alert('Are you sure, you want to delete it?');
-        const url = `https://lit-lowlands-03671.herokuapp.com/userOrder/${id}`;
-        fetch(url, {
-            method: 'DELETE'
-        })
-            .then(res => res.json())
-            .then(data => {
-                console.log(data);
-                if (data.deletedCount) {
-                    alert('deleted successfully')
-                    //window.location.reload();
-                    const remaining = myOrder.filter(order => order._id !== id);
-                    setMyOrder(remaining);
-                    setIsDelete(true);
-                } else { setIsDelete(false); }
+        const proceed = window.confirm('Are you sure, you want to delete it?');
+        if (proceed) {
+            const url = `https://lit-lowlands-03671.herokuapp.com/userOrder/${id}`;
+            fetch(url, {
+                method: 'DELETE'
             })
+                .then(res => res.json())
+                .then(data => {
+                    console.log(data);
+                    if (data.deletedCount) {
+                        alert('deleted successfully')
+                        //window.location.reload();
+                        const remaining = myOrder.filter(order => order._id !== id);
+                        setMyOrder(remaining);
+                        setIsDelete(true);
+                    } else { setIsDelete(false); }
+                })
+        }
     }
     return (
         <div className="container">

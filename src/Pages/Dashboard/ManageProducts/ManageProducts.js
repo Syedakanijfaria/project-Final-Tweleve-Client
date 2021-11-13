@@ -17,22 +17,24 @@ const ManageProducts = (product) => {
     //console.log(products);
 
     const handleDelete = id => {
-        alert('Are you sure, you want to delete it?');
-        const url = `https://lit-lowlands-03671.herokuapp.com/products/${id}`;
-        fetch(url, {
-            method: 'DELETE'
-        })
-            .then(res => res.json())
-            .then(data => {
-                console.log(data);
-                if (data.deletedCount) {
-                    alert('deleted successfully')
-                    const remaining = products.filter(product => product._id !== id);
-                    setProducts(remaining);
-                    setIsDelete(true);
-                } else { setIsDelete(false); }
-
+        const proceed = window.confirm('Are you sure, you want to delete it?');
+        if (proceed) {
+            const url = `https://lit-lowlands-03671.herokuapp.com/products/${id}`;
+            fetch(url, {
+                method: 'DELETE'
             })
+                .then(res => res.json())
+                .then(data => {
+                    console.log(data);
+                    if (data.deletedCount) {
+                        alert('deleted successfully')
+                        const remaining = products.filter(product => product._id !== id);
+                        setProducts(remaining);
+                        setIsDelete(true);
+                    } else { setIsDelete(false); }
+
+                })
+        }
     }
     return (
         <Container>

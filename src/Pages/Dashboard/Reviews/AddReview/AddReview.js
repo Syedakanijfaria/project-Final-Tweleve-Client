@@ -9,7 +9,6 @@ import useAuth from "../../../../Hooks/useAuth.js";
 const AddReview = () => {
     const { register, handleSubmit, reset } = useForm();
     const { user } = useAuth();
-    //const [success, setSuccess] = useState(false);
     const { displayName, email } = user;
 
     const onSubmit = data => {
@@ -53,7 +52,6 @@ const AddReview = () => {
                         type="submit"
                         value="Review" />
                 </form>
-                {/* {success && <Alert severity="success">Made Admin successfully!</Alert>} */}
             </Box>
         </Container>
     );
