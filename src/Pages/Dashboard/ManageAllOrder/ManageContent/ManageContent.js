@@ -4,6 +4,7 @@ const ManageContent = (props) => {
     const { _id, pdname, name, price, email, number, address } = props.user || {};
     const [users, setUsers] = useState([]);
 
+
     const handlePending = id => {
         const aproved = window.confirm('Your order has been aproved!');
         if (aproved) {
@@ -25,7 +26,7 @@ const ManageContent = (props) => {
     const handleDelete = id => {
         const proceed = window.confirm('Are you sure, you want to delete it?');
         if (proceed) {
-            const url = `http://localhost:5000/userOrder${id}`;
+            const url = `http://localhost:5000/userOrder/${id}`;
             fetch(url, {
                 method: 'DELETE'
             })

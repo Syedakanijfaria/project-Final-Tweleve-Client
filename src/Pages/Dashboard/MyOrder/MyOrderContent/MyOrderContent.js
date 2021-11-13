@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import useAuth from '../../../../Hooks/useAuth.js';
 
-
 const MyOrderContent = (props) => {
     const { user } = useAuth();
     const email = user.email;
     const { _id, pdname, name, price, number, address } = props.user || {};
     const [users, setUsers] = useState([]);
-    const [isDelete, setIsDelete] = useState({})
+    const [isDelete, setIsDelete] = useState({});
+
     useEffect(() =>
         fetch(`http://localhost:5000/${user.email}`)
             .then(res => res.json())

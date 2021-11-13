@@ -25,5 +25,4 @@ const AvailableProducts = () => {
         </Container>
     );
 };
-
 export default AvailableProducts;

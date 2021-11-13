@@ -39,6 +39,7 @@ const AvailableProduct = (props) => {
                         {price}
                     </Typography>
                     <Button onClick={() => handleDetails(_id)} variant="contained" color="inherit">BUY NOW</Button>
+                    <Button >Delete</Button>
                 </CardContent>
             </Card>
         </Grid>
