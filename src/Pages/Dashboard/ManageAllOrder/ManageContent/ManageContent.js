@@ -18,7 +18,7 @@ const ManageContent = (props) => {
                 .then(data => {
                     console.log(data);
                     if (data.modifiedcount) {
-                        alert('Aproved successfully')
+                        alert('Shipped successfully')
                         setUsers({});
                     }
                 })
