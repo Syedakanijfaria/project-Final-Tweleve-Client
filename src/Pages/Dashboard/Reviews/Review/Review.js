@@ -5,8 +5,6 @@ import * as React from 'react';
 import Box from '@mui/material/Box';
 import Rating from '@mui/material/Rating';
 import { CardActionArea } from '@mui/material';
-
-
 // const StyledRating = styled(Rating)({
 //     '& .MuiRating-iconFilled': {
 //         color: '#ff6d75',

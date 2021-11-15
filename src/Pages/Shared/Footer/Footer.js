@@ -8,8 +8,8 @@ const Footer = () => {
     return (
         <Container sx={{ backgroundColor: 'primary.main', mt: 4 }}>
             <Grid sx={{ p: 2 }}>
-                <Grid container spacing={2} sx={{ m: 5 }}>
-                    <Grid item xs={6}>
+                <Grid container spacing={2} sx={{ m: 5 }} item xs={12} sm={12} >
+                    <Grid item item xs={12} sm={12} md={6}>
                         <Typography variant="h4" gutterBottom component="div">MILD Baby Care</Typography>
                         <Box>
                             <Typography gutterBottom variant="subtitle2" component="div">The skin of the babies is very delicate as well as sensitive so you should pamper the baby's skin with the best products. Baby products are specially designed  for the tender skin of your babies.</Typography>
@@ -24,7 +24,7 @@ const Footer = () => {
 
                         </Box>
                     </Grid>
-                    <Grid item xs={6}>
+                    <Grid item xs={12} sm={12} md={6}>
                         {/* important contact information */}
                         <Box>
 
@@ -37,7 +37,7 @@ const Footer = () => {
                     </Grid>
                 </Grid>
                 <Divider />
-                <Grid sx={{ my: 3 }}>
+                <Grid sx={{ my: 3 }} item xs={12} sm={12}>
                     {/* social links */}
                     <Box>
                         <Typography variant="button" display="block" gutterBottom><small>©2021 MILD Baby Care. All rights reserved</small></Typography>

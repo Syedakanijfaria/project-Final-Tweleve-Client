@@ -19,7 +19,7 @@ const Banner = () => {
     return (
         <Container style={bannerBg} sx={{ maxWidth: 'auto', height: '100%' }}>
             <Grid container spacing={2}>
-                <Grid item style={{ ...verticalCenter, textAlign: 'left' }} xs={12} md={6}>
+                <Grid item style={{ ...verticalCenter, textAlign: 'left' }} xs={12} sm={12} md={6}>
                     <Box>
                         <Typography variant="h3">
                             Natural & Safe
