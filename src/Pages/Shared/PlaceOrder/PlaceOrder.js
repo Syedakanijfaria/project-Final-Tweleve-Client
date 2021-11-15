@@ -28,8 +28,7 @@ const PlaceOrder = () => {
 
     const onSubmit = data => {
         data.status = "Pending";
-        console.log("status", data);
-
+        //console.log("status", data);
         axios.post('https://lit-lowlands-03671.herokuapp.com/userOrder', data)
             .then(res => {
                 if (res.data.insertedId) {
@@ -39,7 +38,6 @@ const PlaceOrder = () => {
     }
     return (
         <Container>
-            <Navigation></Navigation>
             <Grid>
                 {/* shows single product from all products */}
                 <Card sx={{ maxWidth: 345 }}>

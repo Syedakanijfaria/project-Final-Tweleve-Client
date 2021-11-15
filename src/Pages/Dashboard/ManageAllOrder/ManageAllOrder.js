@@ -3,31 +3,34 @@ import React, { useEffect, useState } from 'react';
 import useAuth from '../../../Hooks/useAuth.js';
 //import ManageContent from './ManageContent/ManageContent.js';
 
-const ManageAllOrder = (props) => {
+const ManageAllOrder = () => {
     //const { _id, pdname, name, price, email, number, address } = props.user || {};
     //const { user } = useAuth();
-    const [order, setOrder] = useState([])
+    const [order, setOrder] = useState([]);
+    const [isDelete, setIsDelete] = useState(false);
 
     useEffect(() => {
         fetch(`https://lit-lowlands-03671.herokuapp.com/userOrder`)
             .then(res => res.json())
             .then(data => setOrder(data))
-    }, [])
+    }, [order, isDelete])
 
 
-    const handlePending = id => {
-        const aproved = window.confirm('Your order has been aproved!');
+    const handlePending = (id) => {
+        console.log(id);
+        const aproved = window.confirm('Your order has been Shipped!');
         if (aproved) {
-            const url = `http://localhost:5000/userOrder/${id}`;
-            fetch(url, {
-                method: 'PUT'
+            fetch(`https://lit-lowlands-03671.herokuapp.com/userOrder/${id}`, {
+                method: 'PUT',
             })
                 .then(res => res.json())
                 .then(data => {
+
                     console.log(data);
-                    if (data.modifiedcount) {
+                    if (data.modifiedCount > 0) {
                         alert('Shipped successfully')
                         setOrder({});
+                        console.log(setOrder);
                     }
                 })
         }
@@ -37,7 +40,7 @@ const ManageAllOrder = (props) => {
     const handleDelete = id => {
         const proceed = window.confirm('Are you sure, you want to delete it?');
         if (proceed) {
-            const url = `http://localhost:5000/userOrder/${id}`;
+            const url = `https://lit-lowlands-03671.herokuapp.com/userOrder/${id}`;
             fetch(url, {
                 method: 'DELETE'
             })
@@ -48,7 +51,8 @@ const ManageAllOrder = (props) => {
                         alert('deleted successfully')
                         const remaining = order.filter(user => user._id !== id);
                         setOrder(remaining);
-                    }
+                        setIsDelete(true);
+                    } else { setIsDelete(false); }
                 })
         }
     }

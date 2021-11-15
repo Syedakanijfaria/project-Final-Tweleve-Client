@@ -12,6 +12,8 @@ import AuthProvider from './Contexts/AuthProvider/AuthProvider.js';
 import PrivateRoute from './Pages/Login/PrivateRoute/PrivateRoute';
 import PlaceOrder from './Pages/Shared/PlaceOrder/PlaceOrder.js';
 import Dashboard from './Pages/Dashboard/Dashboard/Dashboard.js';
+import Navigation from './Pages/Shared/Navigation/Navigation.js';
+import Footer from './Pages/Shared/Footer/Footer.js';
 
 
 function App() {
@@ -19,6 +21,7 @@ function App() {
     <div className="App">
       <AuthProvider>
         <Router>
+          <Navigation />
           <Switch>
             <Route path="/home">
               <Home />
@@ -42,6 +45,7 @@ function App() {
               <Home />
             </Route>
           </Switch>
+          <Footer></Footer>
         </Router>
       </AuthProvider>
     </div>
