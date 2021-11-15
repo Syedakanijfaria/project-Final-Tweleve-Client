@@ -79,7 +79,7 @@ const Navigation = () => {
                         {
                             user?.email ?
                                 <Box>
-                                    <NavLink className={mobileNavItem} to="/dashboard">Dashboard</NavLink>
+                                    <NavLink className={mobileNavItem} to="/dashboard">Dashboard</NavLink><Divider />
                                     <Button onClick={logout} style={{ color: '#000' }} >Logout</Button>
                                 </Box>
                                 :

@@ -12,13 +12,16 @@ const Footer = () => {
                     <Grid item xs={6}>
                         <Typography variant="h4" gutterBottom component="div">MILD Baby Care</Typography>
                         <Box>
-                            <Typography gutterBottom variant="subtitle2" component="div">Extreme Traveler is equipped with everythig required for an amazing tour. Set up a tour and our service now.</Typography>
+                            <Typography gutterBottom variant="subtitle2" component="div">The skin of the babies is very delicate as well as sensitive so you should pamper the baby's skin with the best products. Baby products are specially designed  for the tender skin of your babies.</Typography>
                             <br />
-                            <Typography variant="h5" gutterBottom component="div" >Follow Us </Typography>
+                            <Typography sx={{ m: 1 }} variant="h5" gutterBottom component="div" >Follow Us </Typography>
+
+
                             <i className="fab fa-facebook-square pe-2"></i>
                             <i className="fab fa-instagram pe-2"></i>
                             <i className="fab fa-linkedin pe-2"></i>
                             <i className="fab fa-twitter-square pe-2"></i>
+
                         </Box>
                     </Grid>
                     <Grid item xs={6}>
@@ -37,7 +40,7 @@ const Footer = () => {
                 <Grid sx={{ my: 3 }}>
                     {/* social links */}
                     <Box>
-                        <Typography variant="button" display="block" gutterBottom><small>©2021 Extreme Traveller. All rights reserved</small></Typography>
+                        <Typography variant="button" display="block" gutterBottom><small>©2021 MILD Baby Care. All rights reserved</small></Typography>
                     </Box>
                 </Grid>
             </Grid>
