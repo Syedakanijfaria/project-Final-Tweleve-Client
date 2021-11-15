@@ -16,6 +16,7 @@ const AddReview = () => {
         axios.post('https://lit-lowlands-03671.herokuapp.com/review', data)
             .then(res => {
                 if (res.data.insertedId) {
+                    alert('Wow! you give us a review')
                     reset();
                 }
             })

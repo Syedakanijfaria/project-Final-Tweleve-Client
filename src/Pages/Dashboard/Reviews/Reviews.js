@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { Container, Grid, Typography } from '@mui/material';
+import { Container } from '@mui/material';
+import Carousel from 'react-material-ui-carousel'
 import Review from './Review/Review.js';
 
 const Reviews = () => {
@@ -12,8 +13,7 @@ const Reviews = () => {
     //console.log(products);
     return (
         <Container>
-            <Typography variant="h4" sx={{ color: 'info.main', mb: 3 }}>ALL PRODUCTS</Typography>
-            <Grid container spacing={2}>
+            <Carousel>
                 {
                     reviews.map(review => <Review
                         key={review._id}
@@ -21,7 +21,7 @@ const Reviews = () => {
                     >
                     </Review>)
                 }
-            </Grid>
+            </Carousel>
         </Container>
     );
 };

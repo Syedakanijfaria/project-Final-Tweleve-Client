@@ -1,9 +1,7 @@
-
 import Grid from '@mui/material/Grid';
 import Card from '@mui/material/Card';
 import Typography from '@mui/material/Typography';
 import * as React from 'react';
-import { styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Rating from '@mui/material/Rating';
 import { CardActionArea } from '@mui/material';
@@ -24,8 +22,8 @@ const Review = (props) => {
     // const history = useHistory();
 
     return (
-        <Grid item xs={12} sm={6} md={4}>
-            <Card sx={{ minWidth: 275, border: 0, boxShadow: 0 }}>
+        <Grid >
+            <Card sx={{ border: 0, boxShadow: 2 }}>
                 <CardActionArea>
                     <Box>
                         <Typography sx={{ color: 'info.main', fontWeight: 600 }} variant="h4" gutterBottom component="div">
