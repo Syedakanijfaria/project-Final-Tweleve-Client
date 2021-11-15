@@ -38,7 +38,7 @@ const Product = (props) => {
                             {des}
                         </Typography>
                         <Typography variant="body2" color="text.secondary">
-                            <Button onClick={() => handleDetails(_id)} variant="contained" style={{ backgroundColor: '#5CE7ED' }}>BUY NOW</Button>
+                            <Button onClick={() => handleDetails(_id)} variant="contained">BUY NOW</Button>
                         </Typography>
                     </CardContent>
                 </CardActionArea>

@@ -5,8 +5,6 @@ import * as React from 'react';
 import Box from '@mui/material/Box';
 import Rating from '@mui/material/Rating';
 import { CardActionArea } from '@mui/material';
-//import FavoriteIcon from '@mui/icons-material/Favorite';
-//import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 
 
 // const StyledRating = styled(Rating)({
@@ -23,6 +21,7 @@ const Review = (props) => {
 
     return (
         <Grid >
+            <Typography variant="h2" gutterBottom component="div"> Our Customer Reviews</Typography>
             <Card sx={{ border: 0, boxShadow: 2 }}>
                 <CardActionArea>
                     <Box>
@@ -42,10 +41,6 @@ const Review = (props) => {
                     >
                         <Rating name="read-only" defaultValue={ratings} readOnly />
                     </Box>
-
-                    {/* <Typography variant="h6" gutterBottom component="div">
-                    {ratings}
-                </Typography> */}
                 </CardActionArea>
             </Card>
         </Grid>

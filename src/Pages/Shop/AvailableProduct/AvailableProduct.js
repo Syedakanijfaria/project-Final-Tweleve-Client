@@ -7,7 +7,6 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { Button } from "@mui/material";
 import { useHistory } from 'react-router';
-//import BookingModal from '../BookingModal/BookingModal';
 
 const AvailableProduct = (props) => {
     const { _id, pdname, price, des, img, type } = props.product || {};

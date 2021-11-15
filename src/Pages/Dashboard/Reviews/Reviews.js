@@ -12,8 +12,10 @@ const Reviews = () => {
         , [])
     //console.log(products);
     return (
-        <Container>
-            <Carousel>
+        <Container sx={{ mb: 3 }}>
+            <Carousel autoPlay
+                infiniteLoop
+                showThumbs={false}>
                 {
                     reviews.map(review => <Review
                         key={review._id}

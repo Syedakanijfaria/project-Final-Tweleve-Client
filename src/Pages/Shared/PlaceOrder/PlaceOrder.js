@@ -3,14 +3,12 @@ import { useParams } from 'react-router-dom';
 import useAuth from '../../../Hooks/useAuth.js';
 import { useForm } from "react-hook-form";
 import axios from 'axios';
-import { Container, Grid, Button } from '@mui/material';
+import { Container, Grid } from '@mui/material';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { CardActionArea } from '@mui/material';
-//import { Box } from '@mui/system';
-
 
 const PlaceOrder = () => {
     const { user } = useAuth();
