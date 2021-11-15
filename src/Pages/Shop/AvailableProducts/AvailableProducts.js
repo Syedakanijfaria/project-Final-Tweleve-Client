@@ -12,8 +12,8 @@ const AvailableProducts = () => {
     console.log(products);
     return (
         <Container>
-            <Typography variant="h4" sx={{ color: 'info.main', mb: 3 }}>ALL PRODUCTS</Typography>
-            <Grid container spacing={2}>
+            <Typography variant="h4" sx={{ color: 'info.main', m: 3, textDecoration: 'underline' }}>ALL PRODUCTS</Typography>
+            <Grid container spacing={6} sx={{ color: 'info.main', mt: 3 }}>
                 {
                     products.map(product => <AvailableProduct
                         key={product._id}

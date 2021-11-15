@@ -4,6 +4,7 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import { Button } from "@mui/material";
+import { CardActionArea } from '@mui/material';
 
 const ManageProducts = (product) => {
     const [products, setProducts] = useState([]);
@@ -38,33 +39,35 @@ const ManageProducts = (product) => {
     }
     return (
         <Container>
-            <Typography variant="h4" sx={{ color: 'info.main', mb: 3 }}>ALL PRODUCTS</Typography>
+            <Typography variant="h4" sx={{ color: 'info.main', mb: 5 }}>MANAGE ALL PRODUCTS</Typography>
             <Grid container spacing={2}>
                 {
                     products.map(product =>
                         <Grid item xs={12} sm={6} md={4}>
-                            <Card sx={{ minWidth: 275, border: 0, boxShadow: 0 }}>
-                                <CardMedia
-                                    component="img"
-                                    style={{ width: 'auto', height: '80px', margin: '0 auto' }}
-                                    image={product.img}
-                                    alt="green iguana"
-                                />
-                                <CardContent>
-                                    <Typography sx={{ color: 'info.main', fontWeight: 600 }} variant="h5" gutterBottom component="div">
-                                        {product.pdname}
-                                    </Typography>
-                                    <Typography variant="h6" gutterBottom component="div">
-                                        {product.type}
-                                    </Typography>
-                                    <Typography variant="h6" gutterBottom component="div">
-                                        {product.des}
-                                    </Typography>
-                                    <Typography variant="caption" display="block" gutterBottom>
-                                        {product.price}
-                                    </Typography>
-                                    <Button onClick={() => handleDelete(product._id)} variant="contained" color="inherit">Delete</Button>
-                                </CardContent>
+                            <Card sx={{ minWidth: 275, border: 0, boxShadow: 2 }}>
+                                <CardActionArea>
+                                    <CardMedia
+                                        component="img"
+                                        style={{ width: 'auto', height: '150px', margin: '0 auto' }}
+                                        image={product.img}
+                                        alt="green iguana"
+                                    />
+                                    <CardContent>
+                                        <Typography sx={{ color: 'info.main', fontWeight: 600 }} variant="h5" gutterBottom component="div">
+                                            {product.pdname}
+                                        </Typography>
+                                        <Typography variant="h6" gutterBottom component="div">
+                                            {product.type}
+                                        </Typography>
+                                        <Typography variant="h6" gutterBottom component="div">
+                                            {product.des}
+                                        </Typography>
+                                        <Typography variant="caption" display="block" gutterBottom>
+                                            {product.price}
+                                        </Typography>
+                                        <Button onClick={() => handleDelete(product._id)} variant="contained">Delete</Button>
+                                    </CardContent>
+                                </CardActionArea>
                             </Card>
                         </Grid>)
                 }

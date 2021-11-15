@@ -17,10 +17,10 @@ const Products = () => {
     return (
         <Box sx={{ flexGrow: 1 }}>
             <Container>
-                <Typography sx={{ fontWeight: 500, m: 2, color: 'success.main' }} variant="h3" component="div">
+                <Typography sx={{ fontWeight: 500, m: 6, color: 'success.main' }} variant="h3" component="div">
                     ALL PRODUCTS
                 </Typography>
-                <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
+                <Grid container container spacing={8} columns={{ xs: 4, sm: 8, md: 12 }}>
                     {
                         products.map(product => <Product
                             key={product._id}

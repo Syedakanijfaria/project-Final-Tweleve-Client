@@ -2,7 +2,7 @@ import React from 'react';
 import { useForm } from "react-hook-form";
 import axios from 'axios';
 import useAuth from '../../../Hooks/useAuth.js';
-import { Container, Typography } from '@mui/material';
+import { Card, Container, Typography } from '@mui/material';
 
 const AddNewProduct = () => {
     const { register, handleSubmit, reset } = useForm();
@@ -21,16 +21,18 @@ const AddNewProduct = () => {
 
     return (
         <Container>
-            <form onSubmit={handleSubmit(onSubmit)}>
-                <Typography> Image: <input {...register("img", { required: true })} placeholder="img-url" /></Typography><br />
-                <Typography>Tour Tilte: <input {...register("pdname", { required: true })} placeholder="Title" /></Typography><br />
-                <Typography>User Name: <input type="text" {...register("name")} defaultValue={displayName}
-                /></Typography><br />
-                <Typography>Mail:<input type="email" {...register("email")} defaultValue={email} /></Typography><br />
-                <Typography>Description:<input type="text" {...register("des", { required: true })} ></input></Typography><br />
-                <Typography> Price: $<input type="number" {...register("price")} /></Typography><br />
-                <input type="submit" value="Add new Product" />
-            </form>
+            <Card variant="outlined" sx={{ minWidth: 200, maxWidth: 800 }}>
+                <form onSubmit={handleSubmit(onSubmit)}>
+                    <Typography sx={{ p: 2 }}> Image: <input {...register("img", { required: true })} placeholder="img-url" /></Typography><br />
+                    <Typography sx={{ p: 2 }}>Tour Tilte: <input {...register("pdname", { required: true })} placeholder="Title" /></Typography><br />
+                    <Typography sx={{ p: 2 }}>User Name: <input type="text" {...register("name")} defaultValue={displayName}
+                    /></Typography><br />
+                    <Typography sx={{ p: 2 }}>Mail:<input type="email" {...register("email")} defaultValue={email} /></Typography><br />
+                    <Typography sx={{ p: 2 }}>Description:<input type="text" {...register("des", { required: true })} ></input></Typography><br />
+                    <Typography sx={{ p: 2 }}> Price: $<input type="number" {...register("price")} /></Typography><br />
+                    <input style={{ p: 2 }} type="submit" value="Add new Product" />
+                </form>
+            </Card>
         </Container>
     );
 };

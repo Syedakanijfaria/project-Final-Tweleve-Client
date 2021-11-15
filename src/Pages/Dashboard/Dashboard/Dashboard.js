@@ -6,12 +6,6 @@ import CssBaseline from '@mui/material/CssBaseline';
 import Divider from '@mui/material/Divider';
 import Drawer from '@mui/material/Drawer';
 import IconButton from '@mui/material/IconButton';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
-import List from '@mui/material/List';
-import ListItem from '@mui/material/ListItem';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText';
-import MailIcon from '@mui/icons-material/Mail';
 import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
@@ -46,20 +40,19 @@ function Dashboard(props) {
 
     const drawer = (
         <div>
-            <Toolbar />
             <Divider />
-            <Link to="/home"><Button sx={{ m: 1 }} variant="contained" >Home</Button></Link><br />
-            <Link to="/shop"><Button sx={{ m: 1 }} variant="contained" >SHOP</Button></Link><br />
-            <Link to={`${url}/addreview`}><Button sx={{ m: 1 }} variant="contained">Review</Button></Link><br />
-            <Link to={`${url}/myorder`}><Button sx={{ m: 1 }} variant="contained">MyOrder</Button></Link><br />
-            <Link to={`${url}/pay`}><Button sx={{ m: 1 }} variant="contained">Pay</Button></Link><br />
+            <Link to="/home"><Button sx={{ m: 1 }} variant="contained" >Home</Button></Link><Divider />
+            <Link to="/shop"><Button sx={{ m: 1 }} variant="contained" >SHOP</Button></Link><Divider />
+            <Link to={`${url}/addreview`}><Button sx={{ m: 1 }} variant="contained">Review</Button></Link><Divider />
+            <Link to={`${url}/myorder`}><Button sx={{ m: 1 }} variant="contained">MyOrder</Button></Link><Divider />
+            <Link to={`${url}/pay`}><Button sx={{ m: 1 }} variant="contained">Pay</Button></Link><Divider />
             {admin && <Box>
-                <Link to={`${url}/manageallorder`}><Button sx={{ m: 1 }} variant="contained">Manage All Order</Button></Link><br />
-                <Link to={`${url}/manageproducts`}><Button sx={{ m: 1 }} variant="contained">Manage Products</Button></Link><br />
-                <Link to={`${url}/addnewproduct`}><Button sx={{ m: 1 }} variant="contained">Add new product</Button></Link><br />
-                <Link to={`${url}/makeadmin`}><Button sx={{ m: 1 }} variant="contained">Make Admin</Button></Link>
+                <Link to={`${url}/manageallorder`}><Button sx={{ m: 1 }} variant="contained">Manage All Order</Button></Link><Divider />
+                <Link to={`${url}/manageproducts`}><Button sx={{ m: 1 }} variant="contained">Manage Products</Button></Link><Divider />
+                <Link to={`${url}/addnewproduct`}><Button sx={{ m: 1 }} variant="contained">Add new product</Button></Link><Divider />
+                <Link to={`${url}/makeadmin`}><Button sx={{ m: 1 }} variant="contained">Make Admin</Button></Link><Divider />
             </Box>}
-            <Button onClick={logout} sx={{ m: 1 }} variant="contained">Logout</Button>
+            <Button onClick={logout} sx={{ m: 1 }} variant="contained">Logout</Button><Divider />
         </div>
     );
 

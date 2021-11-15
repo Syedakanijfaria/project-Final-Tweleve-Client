@@ -14,33 +14,37 @@ import Drawer from '@mui/material/Drawer';
 import List from '@mui/material/List';
 import Divider from '@mui/material/Divider';
 import ListItem from '@mui/material/ListItem';
-
 import ListItemText from '@mui/material/ListItemText';
-
 
 
 const Navigation = () => {
     const theme = useTheme();
     const useStyle = makeStyles({
         navItem: {
-            color: '#fff',
+            color: '#000',
             textDecoration: 'none'
         },
         navIcon: {
             [theme.breakpoints.up('sm')]: {
-                display: 'none'
-                // backgroundColor: theme.palette.secondary.main,
+                display: 'none !important'
             },
         },
         navItemContainer: {
             [theme.breakpoints.down('sm')]: {
                 display: 'none'
-                // backgroundColor: theme.palette.secondary.main,
+            },
+            [theme.breakpoints.up('md')]: {
+                display: 'flex'
             },
         },
         navLogo: {
             [theme.breakpoints.down('sm')]: {
-                textAlign: 'right'
+                textAlign: 'right',
+                color: '#000'
+            },
+            [theme.breakpoints.up('md')]: {
+                textAlign: 'left',
+                color: '#000'
                 // backgroundColor: theme.palette.secondary.main,
             },
         },
@@ -52,46 +56,38 @@ const Navigation = () => {
     const { navItem, navIcon, navItemContainer, navLogo, mobileNavItem } = useStyle();
     const { user, logout } = useAuth();
 
-    const [state, setState] = React.useState(false);
-    const toggleDrawer = (anchor, open) => (event) => {
-        if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
-            return;
-        }
 
-        setState({ ...state, [anchor]: open });
-    };
-    const list = (anchor) => (
+    const [state, setState] = React.useState(false);
+    const list = (
         <Box
             sx={{ width: 250 }}
             role="presentation"
-            onClick={toggleDrawer(anchor, false)}
-            onKeyDown={toggleDrawer(anchor, false)}
         >
             <List>
                 <ListItem button >
                     <ListItemText>
-                        <Link className={mobileNavItem} to="/home"><Button style={{ textDecoration: 'none' }} color="inherit">HOME</Button></Link>
+                        <Link className={mobileNavItem} to="/home">HOME</Link>
                     </ListItemText >
                 </ListItem>
                 <Divider />
                 <ListItem button >
-                    <ListItemText><Link className={mobileNavItem} to="/shop"><Button style={{ textDecoration: 'none' }} color="inherit">SHOP</Button></Link></ListItemText >
+                    <ListItemText><Link className={mobileNavItem} to="/shop">SHOP</Link></ListItemText >
                 </ListItem>
                 <Divider />
                 <ListItem button >
-                    <ListItemText>{
-                        user?.email ?
-                            <Box>
-                                <NavLink className={mobileNavItem} style={{ textDecoration: 'none' }} to="/dashboard">
-                                    <Button color="inherit">Dashboard</Button>
+                    <ListItemText>
+                        {
+                            user?.email ?
+                                <Box>
+                                    <NavLink className={mobileNavItem} to="/dashboard">Dashboard</NavLink>
+                                    <Button onClick={logout} style={{ color: '#000' }} >Logout</Button>
+                                </Box>
+                                :
+                                <NavLink className={mobileNavItem} to="/login">
+                                    Login
                                 </NavLink>
-                                <Button onClick={logout} color="inherit">Logout</Button>
-                            </Box>
-                            :
-                            <NavLink className={mobileNavItem} style={{ textDecoration: 'none' }} to="/login">
-                                <Button color="inherit">Login</Button>
-                            </NavLink>
-                    }</ListItemText >
+                        }
+                    </ListItemText >
                 </ListItem>
             </List>
         </Box>
@@ -113,21 +109,21 @@ const Navigation = () => {
                             <MenuIcon />
                         </IconButton>
                         <Typography className={navLogo} variant="h6" component="div" sx={{ flexGrow: 1 }}>
-                            MILD<br />Baby Care
+                            MILD Baby Care
                         </Typography>
-                        <Box className={navItemContainer}>
-                            <Link className={navItem} to="/home"><Button style={{ textDecoration: 'none', color: 'white' }} color="inherit">HOME</Button></Link>
-                            <Link className={navItem} to="/shop"><Button style={{ textDecoration: 'none', color: 'white' }} color="inherit">SHOP</Button></Link>
+                        <Box className={navItemContainer} >
+                            <Link className={navItem} to="/home"><Button style={{ textDecoration: 'none' }} color="inherit">HOME</Button></Link>
+                            <Link className={navItem} to="/shop"><Button style={{ textDecoration: 'none' }} color="inherit">SHOP</Button></Link>
                             {
                                 user?.email ?
                                     <Box>
-                                        <NavLink className={navItem} style={{ textDecoration: 'none', color: 'white' }} to="/dashboard">
+                                        <NavLink className={navItem} style={{ textDecoration: 'none' }} to="/dashboard">
                                             <Button color="inherit">Dashboard</Button>
                                         </NavLink>
-                                        <Button onClick={logout} color="inherit">Logout</Button>
+                                        <Button onClick={logout} className={navItem} color="inherit">Logout</Button>
                                     </Box>
                                     :
-                                    <NavLink className={navItem} style={{ textDecoration: 'none', color: 'white' }} to="/login">
+                                    <NavLink className={navItem} style={{ textDecoration: 'none' }} to="/login">
                                         <Button color="inherit">Login</Button>
                                     </NavLink>
                             }
@@ -137,18 +133,17 @@ const Navigation = () => {
             </Box >
 
             <div>
-                {['left'].map((anchor) => (
-                    <React.Fragment key={anchor}>
-                        <Button onClick={toggleDrawer(anchor, true)}>{anchor}</Button>
-                        <Drawer
-                            anchor={anchor}
-                            open={state[anchor]}
-                            onClose={toggleDrawer(anchor, false)}
-                        >
-                            {list(anchor)}
-                        </Drawer>
-                    </React.Fragment>
-                ))}
+                {/* {['left'].map((anchor) => ( */}
+                <React.Fragment>
+                    {/*<Button onClick={() => setState(true)}></Button> */}
+                    <Drawer
+                        //anchor={anchor}
+                        open={state}
+                        onClose={() => setState(false)}
+                    >
+                        {list}
+                    </Drawer>
+                </React.Fragment>
             </div>
         </>
     );

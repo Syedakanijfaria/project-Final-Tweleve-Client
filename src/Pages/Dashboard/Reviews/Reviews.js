@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { Container, Grid, Typography } from '@mui/material';
-//import AvailableProduct from '../AvailableProduct/AvailableProduct.js';
-//import Reviewer from './Reviewer/Reviewer.js';
 import Review from './Review/Review.js';
 
 const Reviews = () => {

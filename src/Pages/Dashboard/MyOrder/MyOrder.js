@@ -1,3 +1,4 @@
+import { Container, Grid, Paper, Button, Typography } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 import useAuth from '../../../Hooks/useAuth.js';
 
@@ -34,27 +35,25 @@ const MyOrder = () => {
         }
     }
     return (
-        <div className="container">
-            <h1>this is single user order review</h1>
-            <div>
+        <Container>
+            <Typography sx={{ color: 'info.main', fontWeight: 300, mb: 5 }} variant="h3" gutterBottom component="div">My Order</Typography>
+            <Grid container spacing={8} >
                 {
                     myOrder.map(user =>
-                        <div className="col-md-3">
-                            <div className="card" style={{ "width": "18rem" }}>
-                                <div className="card-body">
-                                    <h5 className="card-title">Title: {user?.pdname}</h5>
-                                    <p className="card-text">User Name: {user?.name}</p>
-                                    <p className="card-text">Price: {user.price}</p>
-                                    <p className="card-text">Email: {user.email}</p>
-                                    <p className="card-text">Mobile Number: {user.number}</p>
-                                    <p className="card-text">Address: {user.address}</p>
-                                    <button onClick={() => handleDelete(user._id)} >Delete</button>
-                                </div>
-                            </div>
-                        </div>)
+                        <Grid item xs={12} md={4}>
+                            <Paper elevation={3} sx={{ py: 5 }}>
+                                <Typography variant="h5" gutterBottom component="div">Title: {user?.pdname}</Typography >
+                                <Typography variant="h5" gutterBottom component="div">User Name: {user?.name}</Typography >
+                                <Typography variant="h6" gutterBottom component="div">Email: {user.email}</Typography >
+                                <Typography variant="h6" gutterBottom component="div">Mobile Number: {user.number}</Typography >
+                                <Typography variant="h6" gutterBottom component="div">Price: {user.price}</Typography >
+                                <Typography variant="text" gutterBottom component="div">Address: {user.address}</Typography >
+                                <Button variant='contained' onClick={() => handleDelete(user._id)} >Delete</Button>
+                            </Paper>
+                        </Grid>)
                 }
-            </div>
-        </div>
+            </Grid>
+        </Container>
     )
 }
 export default MyOrder;

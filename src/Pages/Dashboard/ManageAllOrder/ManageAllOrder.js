@@ -1,4 +1,4 @@
-import { Card, Container, Grid, Typography, Button } from '@mui/material';
+import { Card, Container, Grid, Typography, Button, Paper } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 import useAuth from '../../../Hooks/useAuth.js';
 //import ManageContent from './ManageContent/ManageContent.js';
@@ -59,20 +59,22 @@ const ManageAllOrder = () => {
 
     return (
         <Container>
-            <h1>this is all user order review</h1>
-            <Grid>
+            <Typography sx={{ color: 'info.main', fontWeight: 300, mb: 5 }} variant="h3" gutterBottom component="div">Manage All Order</Typography>
+            <Grid container spacing={8} >
                 {
                     order.map(user =>
-                        <Card>
-                            <Typography className="card-title">Title: {user?.pdname}</Typography >
-                            <Typography className="card-text">User Name: {user?.name}</Typography >
-                            <Typography >Price: {user?.price}</Typography >
-                            <Typography >Email: {user?.email}</Typography >
-                            <Typography >Mobile Number: {user?.number}</Typography >
-                            <Typography >Address: {user?.address}</Typography >
-                            <Button sx={{ m: 1 }} variant="contained" onClick={() => handlePending(user?._id)} >Pending</Button>
-                            <Button sx={{ m: 1 }} variant="contained" onClick={() => handleDelete(user?._id)} >Delete</Button>
-                        </Card>)
+                        <Grid item xs={12} md={4}>
+                            <Paper elevation={3} sx={{ py: 5 }}>
+                                <Typography variant="h5" gutterBottom component="div">Title: {user?.pdname}</Typography >
+                                <Typography variant="h5" gutterBottom component="div">User Name: {user?.name}</Typography >
+                                <Typography variant="h6" gutterBottom component="div">Email: {user.email}</Typography >
+                                <Typography variant="h6" gutterBottom component="div">Mobile Number: {user.number}</Typography >
+                                <Typography variant="h6" gutterBottom component="div">Price: {user.price}</Typography >
+                                <Typography variant="text" gutterBottom component="div">Address: {user.address}</Typography >
+                                <Button sx={{ m: 1 }} variant="contained" onClick={() => handlePending(user?._id)} >Pending</Button>
+                                <Button sx={{ m: 1 }} variant="contained" onClick={() => handleDelete(user?._id)} >Delete</Button>
+                            </Paper>
+                        </Grid>)
                 }
             </Grid>
         </Container>

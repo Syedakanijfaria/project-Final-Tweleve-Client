@@ -6,6 +6,7 @@ import * as React from 'react';
 import { styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Rating from '@mui/material/Rating';
+import { CardActionArea } from '@mui/material';
 //import FavoriteIcon from '@mui/icons-material/Favorite';
 //import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 
@@ -25,23 +26,29 @@ const Review = (props) => {
     return (
         <Grid item xs={12} sm={6} md={4}>
             <Card sx={{ minWidth: 275, border: 0, boxShadow: 0 }}>
-                <Box><Typography sx={{ color: 'info.main', fontWeight: 600 }} variant="h5" gutterBottom component="div">
-                    {name}
-                </Typography></Box>
-                <Box><Typography variant="h6" gutterBottom component="div">
-                    {comments}
-                </Typography></Box>
-                <Box
-                    sx={{
-                        '& > legend': { mt: 2 },
-                    }}
-                >
-                    <Rating name="read-only" defaultValue={ratings} readOnly />
-                </Box>
+                <CardActionArea>
+                    <Box>
+                        <Typography sx={{ color: 'info.main', fontWeight: 600 }} variant="h4" gutterBottom component="div">
+                            {name}
+                        </Typography>
+                    </Box>
+                    <Box>
+                        <Typography variant="h6" gutterBottom component="div">
+                            {comments}
+                        </Typography>
+                    </Box>
+                    <Box
+                        sx={{
+                            '& > legend': { mt: 2 },
+                        }}
+                    >
+                        <Rating name="read-only" defaultValue={ratings} readOnly />
+                    </Box>
 
-                {/* <Typography variant="h6" gutterBottom component="div">
+                    {/* <Typography variant="h6" gutterBottom component="div">
                     {ratings}
                 </Typography> */}
+                </CardActionArea>
             </Card>
         </Grid>
     );
