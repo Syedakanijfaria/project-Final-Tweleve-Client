@@ -109,7 +109,7 @@ const Navigation = () => {
                             <MenuIcon />
                         </IconButton>
                         <Typography className={navLogo} variant="h6" component="div" sx={{ flexGrow: 1 }}>
-                            MILD Baby Care
+                            MILD BABY CARE
                         </Typography>
                         <Box className={navItemContainer} >
                             <Link className={navItem} to="/home"><Button style={{ textDecoration: 'none' }} color="inherit">HOME</Button></Link>
