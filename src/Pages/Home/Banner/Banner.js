@@ -1,13 +1,22 @@
-import React from 'react';
+import * as React from 'react';
 import Grid from '@mui/material/Grid';
-import bg from '../../../images/bg.png';
+import bg2 from '../../../images/bg2.jpg';
 import { Typography, Button, Container } from '@mui/material';
 import Box from '@mui/material/Box';
 import { Link } from 'react-router-dom';
 //import Carousel from 'react-material-ui-carousel'
+import { styled } from '@mui/material/styles';
+import { pink } from '@mui/material/colors';
 
+const ColorButton = styled(Button)(({ theme }) => ({
+    color: theme.palette.getContrastText(pink[500]),
+    backgroundColor: pink[500],
+    '&:hover': {
+        backgroundColor: pink[300],
+    },
+}));
 const bannerBg = {
-    background: `url(${bg})`,
+    background: `url(${bg2})`,
     maxWidth: '100%'
 }
 const verticalCenter = {
@@ -18,16 +27,18 @@ const verticalCenter = {
 const Banner = () => {
     return (
         <Container style={bannerBg} sx={{ maxWidth: 'auto', height: '100%' }}>
-            <Grid container spacing={2}>
+            <Grid container spacing={12}>
                 <Grid item style={{ ...verticalCenter, textAlign: 'left' }} xs={12} sm={12} md={6}>
-                    <Box>
+                </Grid>
+                <Grid item style={{ ...verticalCenter, textAlign: 'left' }} xs={12} sm={12} md={6}>
+                    <Box sx={{ p: 12 }}>
                         <Typography variant="h3">
                             Natural & Safe
                         </Typography>
                         <Typography variant="h6" sx={{ my: 5, fontSize: 15, fontWeight: 400 }}>
                             The skin of the babies is very delicate as well as sensitive so you should pamper the baby's skin with the best products. Baby products are specially designed  for the tender skin of your babies.
                         </Typography>
-                        <Link to="/shop"><Button variant="contained" style={{ textDecoration: 'none' }}>Explore All Products</Button></Link>
+                        <Link style={{ textDecoration: 'none' }} to="/shop"><ColorButton variant="contained" style={{}}>Explore All Products</ColorButton></Link>
                     </Box>
                 </Grid>
             </Grid>
