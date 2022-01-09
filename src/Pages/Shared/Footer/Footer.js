@@ -6,9 +6,9 @@ import Container from '@mui/material/Container';
 
 const Footer = () => {
     return (
-        <Container style={{ backgroundColor: '#f06292' }} sx={{ mt: 4 }}>
-            <Grid sx={{ p: 2 }}>
-                <Grid container spacing={2} sx={{ m: 5 }} item xs={12} sm={12} >
+        <Container fixed sx={{ height: 'vh', mt: 8, backgroundColor: '#f06292' }}>
+            <Grid container>
+                <Grid container spacing={8} sx={{ m: 5 }} item xs={12} sm={12} >
                     <Grid item style={{ textAlign: 'left' }} xs={12} sm={12} md={6}>
                         <Box>
                             <Typography variant="h4" gutterBottom component="div">MILD Baby Care</Typography>
@@ -36,7 +36,7 @@ const Footer = () => {
                     </Grid>
                 </Grid>
                 <Divider />
-                <Grid sx={{ my: 3 }} item xs={12} sm={12}>
+                <Grid sx={{ my: 3 }} xs={12} sm={12}>
                     {/* social links */}
                     <Box>
                         <Typography variant="button" display="block" gutterBottom><small>©2021 MILD Baby Care. All rights reserved</small></Typography>
@@ -46,7 +46,4 @@ const Footer = () => {
         </Container >
     );
 };
-
-
-
 export default Footer;
