@@ -41,18 +41,18 @@ function Dashboard(props) {
     const drawer = (
         <div>
             <Divider />
-            <Link to="/home"><Button sx={{ m: 1 }} variant="contained" >Home</Button></Link><Divider />
-            <Link to="/shop"><Button sx={{ m: 1 }} variant="contained" >SHOP</Button></Link><Divider />
-            <Link to={`${url}/addreview`}><Button sx={{ m: 1 }} variant="contained">Review</Button></Link><Divider />
-            <Link to={`${url}/myorder`}><Button sx={{ m: 1 }} variant="contained">MyOrder</Button></Link><Divider />
-            <Link to={`${url}/pay`}><Button sx={{ m: 1 }} variant="contained">Pay</Button></Link><Divider />
+            <Link to="/home" style={{ textDecoration: 'none' }}><Button sx={{ backgroundColor: '#f06292', m: 1 }} color="inherit">Home</Button></Link><Divider />
+            <Link to="/shop" style={{ textDecoration: 'none' }}><Button sx={{ backgroundColor: '#f06292', m: 1 }} color="inherit" >SHOP</Button></Link><Divider />
+            <Link to={`${url}/addreview`} style={{ textDecoration: 'none' }}><Button sx={{ backgroundColor: '#f06292', m: 1 }} color="inherit">Review</Button></Link><Divider />
+            <Link to={`${url}/myorder`} style={{ textDecoration: 'none' }}><Button sx={{ backgroundColor: '#f06292', m: 1 }} color="inherit">MyOrder</Button></Link><Divider />
+            <Link to={`${url}/pay`} style={{ textDecoration: 'none' }}><Button sx={{ backgroundColor: '#f06292', m: 1 }} color="inherit">Pay</Button></Link><Divider />
             {admin && <Box>
-                <Link to={`${url}/manageallorder`}><Button sx={{ m: 1 }} variant="contained">Manage All Order</Button></Link><Divider />
-                <Link to={`${url}/manageproducts`}><Button sx={{ m: 1 }} variant="contained">Manage Products</Button></Link><Divider />
-                <Link to={`${url}/addnewproduct`}><Button sx={{ m: 1 }} variant="contained">Add new product</Button></Link><Divider />
-                <Link to={`${url}/makeadmin`}><Button sx={{ m: 1 }} variant="contained">Make Admin</Button></Link><Divider />
+                <Link to={`${url}/manageallorder`} style={{ textDecoration: 'none' }}><Button sx={{ backgroundColor: '#f06292', m: 1 }} color="inherit">Manage All Order</Button></Link><Divider />
+                <Link to={`${url}/manageproducts`} style={{ textDecoration: 'none' }}><Button sx={{ backgroundColor: '#f06292', m: 1 }} color="inherit">Manage Products</Button></Link><Divider />
+                <Link to={`${url}/addnewproduct`} style={{ textDecoration: 'none' }}><Button sx={{ backgroundColor: '#f06292', m: 1 }} color="inherit">Add new product</Button></Link><Divider />
+                <Link to={`${url}/makeadmin`} style={{ textDecoration: 'none' }}><Button sx={{ backgroundColor: '#f06292', m: 1 }} color="inherit">Make Admin</Button></Link><Divider />
             </Box>}
-            <Button onClick={logout} sx={{ m: 1 }} variant="contained">Logout</Button><Divider />
+            <Button onClick={logout} sx={{ backgroundColor: '#f06292', m: 1 }} >Logout</Button><Divider />
         </div>
     );
 
@@ -64,6 +64,7 @@ function Dashboard(props) {
             <AppBar
                 position="fixed"
                 sx={{
+                    backgroundColor: '#f06292',
                     width: { sm: `calc(100% - ${drawerWidth}px)` },
                     ml: { sm: `${drawerWidth}px` },
                 }}

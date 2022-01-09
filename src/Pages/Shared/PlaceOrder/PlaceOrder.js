@@ -3,12 +3,12 @@ import { useParams } from 'react-router-dom';
 import useAuth from '../../../Hooks/useAuth.js';
 import { useForm } from "react-hook-form";
 import axios from 'axios';
-import { Container, Grid } from '@mui/material';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
-import { CardActionArea } from '@mui/material';
+import { CardActionArea, Grid } from '@mui/material';
+import Footer from '../../Shared/Footer/Footer.js';
 
 const PlaceOrder = () => {
     const { user } = useAuth();
@@ -37,11 +37,12 @@ const PlaceOrder = () => {
             })
     }
     return (
-        <Container>
-            <Grid container spacing={8} sx={{ m: 3 }}>
-                <Grid item xs={12} sm={5}>
+        <Grid container>
+            <Typography variant="h4" sx={{ mt: 3 }}>Proceed to Checkout.......</Typography>
+            <Grid container spacing={12} sx={{ m: 5 }}>
+                <Grid item xs={12} sm={12} md={6} lg={6} >
                     {/* shows single product from all products */}
-                    <Card sx={{ maxWidth: 400 }}>
+                    <Card sx={{ maxWidth: 400, height: '100%' }}>
                         <CardActionArea>
                             <CardMedia
                                 component="img"
@@ -64,29 +65,37 @@ const PlaceOrder = () => {
                     </Card>
                 </Grid >
                 {/* user gives information for purchasing product */}
-                < Grid item xs={12} sm={7}>
-                    <Card sx={{ maxWidth: 400, p: 8 }}>
-                        <form onSubmit={handleSubmit(onSubmit)}>
-                            <p>Product Name: <input {...register("pdname", { required: true })} placeholder="Title" /></p><br />
+                < Grid item xs={12} sm={12} md={6} lg={6}>
+                    <Card sx={{ maxWidth: 400, height: '100%' }}>
 
-                            <p>User Name: <input type="text" {...register("name")} defaultValue={displayName}
-                            /></p><br />
+                        <CardContent sx={{ p: 4 }}>
+                            <form onSubmit={handleSubmit(onSubmit)}>
+                                <p>Product Name: <br /><input {...register("pdname", { required: true })} placeholder="Title" /></p><br />
 
-                            <p>Mail: <input type="email" {...register("email")} defaultValue={email} /></p><br />
+                                <p>User Name: <br /><input type="text" {...register("name")} defaultValue={displayName} /></p><br />
 
-                            <p>Price: $<input type="number" {...register("price", { required: true })} /></p><br />
+                                <p>Mail: <br /><input type="email" {...register("email")} defaultValue={email} /></p><br />
 
-                            <p>Address: <input type="address" {...register("address", { required: true })} placeholder="Address" /></p><br />
+                                <p>Price: $ <br /><input type="number" {...register("price", { required: true })} /></p><br />
 
-                            <p>Mobile Number: <input type="Mobile number" {...register("number", { required: true })} placeholder="Mobile Number" /></p><br />
+                                <p>Address: <br /><input type="address" {...register("address", { required: true })} placeholder="Address" /></p><br />
 
-                            <input type="submit" value="Book Now" />
-                        </form>
+                                <p>Mobile Number: <br /><input type="Mobile number" {...register("number", { required: true })} placeholder="Mobile Number" /></p><br />
+
+                                <input type="submit" value="Book Now" />
+                            </form>
+                        </CardContent>
+
                     </Card>
                 </Grid >
             </Grid>
-        </Container >
+            <Grid>
+                <Footer></Footer>
+            </Grid>
+
+        </Grid >
+
     );
 };
-
+//
 export default PlaceOrder;
